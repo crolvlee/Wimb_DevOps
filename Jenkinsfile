@@ -1,7 +1,7 @@
 node {
     def app
     stage('Clone repository') {
-        git clone 'https://github.com/crolvlee/Wimb_DevOps.git'
+        git 'https://github.com/crolvlee/Wimb_DevOps.git'
     }
     stage('Build image') {
         app = docker.build('crolvlee/wimb_test')
