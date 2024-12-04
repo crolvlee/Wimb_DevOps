@@ -22,7 +22,7 @@ spec:
         image: crolvlee/wimb_test:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+        - containerPort: 5000   # 컨테이너 내부에서 요청을 처리할 포트
           name: wimb-container-port
 ---
 apiVersion: v1
@@ -33,9 +33,9 @@ metadata:
     app: wimb-s
 spec:
   ports:
-  - port: 80
-    targetPort: 5000
+  - port: 80          # 사용자가 요청을 보낼 포트
+    targetPort: 5000  # 요청이 전달될 Pod 내부 컨테이너 포트
   selector:
-    app: wimb-p
+    app: wimb-p       # 파드를 식별하기 위한 라벨
     tier: wimb-tier
   type: LoadBalancer
