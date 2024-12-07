@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'open-436911'
-        CLUSTER_NAME = 'wimb-kube'
-        LOCATION = 'us-central1-a'
-        CREDENTIALS_ID = '25e628d7-2697-4d33-9d87-cf999794e66c'
+        PROJECT_ID = 'sswu-wimb-project'
+        CLUSTER_NAME = 'wimb-sql-kube'
+        LOCATION = 'us-central1-f'
+        CREDENTIALS_ID = '01cfbed5-8dad-4a60-a53d-7cb802966f30'
     }
     stages {
         stage("Checkout code") {
@@ -15,7 +15,7 @@ pipeline {
         stage("Prepare env") {
             steps {
                 script {
-                    sh "cp /var/jenkins_home/.env ./code/.env"
+                    sh "cp /var/jenkins_home/wimb-sql.env ./code/.env"
                 }
             }
         }
