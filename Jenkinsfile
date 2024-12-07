@@ -22,7 +22,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    myapp = docker.build("crolvlee/wimb_test:${env.BUILD_ID}")
+                    myapp = docker.build("crolvlee/wimb_sql:${env.BUILD_ID}")
                 }
             }
         }
@@ -38,10 +38,10 @@ pipeline {
         }
         stage('Deploy to GKE') {
 			when {
-				branch 'main'
+				branch 'sql-test'
 			}
             steps{
-                sh "sed -i 's/wimb_test:latest/wimb_test:${env.BUILD_ID}/g' deployment.yaml"
+                sh "sed -i 's/wimb_sql:latest/wimb_sql:${env.BUILD_ID}/g' deployment.yaml"
                 step([$class: 'KubernetesEngineBuilder', 
                     projectId: env.PROJECT_ID, 
                     clusterName: env.CLUSTER_NAME, 
