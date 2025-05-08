@@ -5,6 +5,7 @@ node.js 기반 웹 제작 프로젝트
 ## 🖥️ 프로젝트 소개
 자신의 취향이 담긴 아이템 목록을 다른 사람들에게 공유할 수 있는 커뮤니티 플랫폼
 <br>
+<br>
 ⁕프로젝트 소개 자료 참고
 <br>
 ![서구실 표지](https://github.com/user-attachments/assets/a02d3cc9-78c4-4208-97b4-ff4264811deb)
