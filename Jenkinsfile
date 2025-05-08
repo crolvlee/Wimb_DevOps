@@ -15,7 +15,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    myapp = docker.build("crolvlee/wimb_test:${env.BUILD_ID}")
+                    myapp = docker.build("crolvlee/wimb-2025:${env.BUILD_ID}")
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
 				branch 'main'
 			}
             steps{
-                sh "sed -i 's/wimb_test:latest/wimb_test:${env.BUILD_ID}/g' deployment.yaml"
+                sh "sed -i 's/wimb-2025:latest/wimb-2025:${env.BUILD_ID}/g' deployment.yaml"
                 step([$class: 'KubernetesEngineBuilder', 
                     projectId: env.PROJECT_ID, 
                     clusterName: env.CLUSTER_NAME, 
