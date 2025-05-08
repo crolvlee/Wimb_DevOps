@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = 'open-436911'
+        PROJECT_ID = 'applied-arcanum-459112-v3'
         CLUSTER_NAME = 'wimb-kube'
-        LOCATION = 'us-central1-a'
-        CREDENTIALS_ID = '25e628d7-2697-4d33-9d87-cf999794e66c'
+        LOCATION = 'us-central1-c'
+        CREDENTIALS_ID = '9375fded-5f75-4b71-9376-a74792a84ba4'
     }
     stages {
         stage("Checkout code") {
