@@ -12,13 +12,6 @@ pipeline {
                 checkout scm
             }
         }
-        stage("Prepare env") {
-            steps {
-                script {
-                    sh "cp /var/jenkins_home/.env ./code/.env"
-                }
-            }
-        }
         stage('Build image') {
             steps {
                 script {
