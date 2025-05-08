@@ -19,6 +19,13 @@ pipeline {
                 }
             }
         }
+	stage("Prepare env") {
+            steps {
+                script {
+                    sh "cp /var/jenkins_home/.env ./code/.env"
+                }
+            }
+        }
         stage("Push image") {
             steps {
                 script {
