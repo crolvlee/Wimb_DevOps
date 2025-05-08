@@ -12,17 +12,17 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build image') {
-            steps {
-                script {
-                    myapp = docker.build("crolvlee/wimb-2025:${env.BUILD_ID}")
-                }
-            }
-        }
 	stage("Prepare env") {
             steps {
                 script {
                     sh "cp /var/jenkins_home/.env ./code/.env"
+                }
+            }
+        }
+        stage('Build image') {
+            steps {
+                script {
+                    myapp = docker.build("crolvlee/wimb-2025:${env.BUILD_ID}")
                 }
             }
         }
