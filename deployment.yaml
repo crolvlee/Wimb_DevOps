@@ -24,6 +24,11 @@ spec:
         ports:
         - containerPort: 5000   # 컨테이너 내부에서 요청을 처리할 포트
           name: wimb-port
+        resources:
+          requests:
+            cpu: "150m"
+          limits:
+            cpu: "250m"
 ---
 apiVersion: v1
 kind: Service
