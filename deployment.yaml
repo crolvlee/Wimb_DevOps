@@ -32,6 +32,7 @@ metadata:
   labels:
     app: wimb-s
 spec:
+  sessionAffinity: ClientIP
   ports:
   - port: 80          # 사용자가 요청을 보낼 포트
     targetPort: 5000  # 요청이 전달될 Pod 내부 컨테이너 포트
