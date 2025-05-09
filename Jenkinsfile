@@ -49,7 +49,14 @@ pipeline {
                     manifestPattern: 'deployment.yaml', 
                     credentialsId: env.CREDENTIALS_ID, 
                     verifyDeployments: true])
-		sh "kubectl apply -f hpa.yaml"
+		step([$class: 'KubernetesEngineBuilder',
+                    projectId: env.PROJECT_ID,
+                    clusterName: env.CLUSTER_NAME,
+                    location: env.LOCATION,
+                    manifestPattern: 'hpa.yaml',
+                    credentialsId: env.CREDENTIALS_ID,
+                    verifyDeployments: true
+                ])
             }
         }
     }
